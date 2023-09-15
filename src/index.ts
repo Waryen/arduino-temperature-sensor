@@ -1,11 +1,16 @@
 import { Board, Thermometer } from 'johnny-five';
 
 const board = new Board();
-let thermometer;
+const thermometer = new Thermometer({ pin: '' });
 
 board.on('ready', () => {
   console.log('board is ready!');
-  thermometer = new Thermometer({ board });
+
+  // listen for data changes on the thermometer object
+  thermometer.on('data', () => {
+    const temperature = thermometer.celsius;
+    console.log(`The current ambiant temperature is: ${temperature}°C`);
+  });
 });
 
 board.on('error', (err) => {

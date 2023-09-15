@@ -2,6 +2,8 @@
 
 This is a minimalist project to capture the ambiant temperature of a room using an Arduino controller and johnny-five JavaScript package.
 
+!!! This project has not been tested yet !!!
+
 ## About the tech stack
 
 - [Bun](https://bun.sh) - a JavaScript runtime faster than NodeJS
