@@ -1,0 +1,28 @@
+{
+  "name": "temperature-sensor",
+  "version": "1.0.0",
+  "description": "A Bun controller for a temperature snesor built with Arduino",
+  "main": "index.js",
+  "scripts": {
+    "dev": "bun --watch ./src/index.js",
+    "build": "bun build ./src/index.js --outdir ./dist --minify --target bun --format esm --splitting",
+    "start": "bun run build && bun ./dist/index.js"
+  },
+  "keywords": [
+    "arduino",
+    "javascript",
+    "temperature",
+    "sensor",
+    "bun",
+    "johnny",
+    "five"
+  ],
+  "author": "Waryen <jonathangomand@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "johnny-five": "^2.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  }
+}
