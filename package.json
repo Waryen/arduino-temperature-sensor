@@ -1,16 +1,17 @@
 {
-  "name": "temperature-sensor",
+  "name": "arduino-temperature-sensor",
   "version": "1.0.0",
-  "description": "A Bun controller for a temperature snesor built with Arduino",
+  "description": "A JavaScript controller for a temperature sensor built with Arduino",
   "main": "index.js",
   "scripts": {
-    "dev": "bun --watch ./src/index.js",
-    "build": "bun build ./src/index.js --outdir ./dist --minify --target bun --format esm --splitting",
+    "dev": "bun --watch ./src/index.ts",
+    "build": "bun build ./src/index.ts --outdir ./dist --minify --target bun --format esm --splitting",
     "start": "bun run build && bun ./dist/index.js"
   },
   "keywords": [
     "arduino",
     "javascript",
+    "typescript",
     "temperature",
     "sensor",
     "bun",
