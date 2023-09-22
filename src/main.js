@@ -16,7 +16,7 @@ board.on("ready", () => {
   // initialize the leds and the thermometer sensor
   const hotLed = new Led(13);
   const coldLed = new Led(12);
-  const midlLed = new Led(7);
+  const mildLed = new Led(7);
   const thermometer = new Thermometer({
     controller: sensor,
     pin: analogPin,
@@ -30,7 +30,7 @@ board.on("ready", () => {
     // if the temperature is below or equal to the cold breakpoint
     if (currentTemperature <= temperatureBreakPoints.cold) {
       hotLed.off();
-      midlLed.off();
+      mildLed.off();
       coldLed.on();
       console.log(`${currentTemperature}°C ... 🥶`);
     }
@@ -45,14 +45,14 @@ board.on("ready", () => {
     ) {
       hotLed.off();
       coldLed.off();
-      midlLed.on();
+      mildLed.on();
       console.log(`${currentTemperature}°C ... ✅`);
     }
 
     // if the temperature is above or equal to the hot breakpoint
     if (currentTemperature)
       if (currentTemperature >= temperatureBreakPoints.hot) {
-        midlLed.off();
+        mildLed.off();
         coldLed.off();
         hotLed.on();
         console.log(`${currentTemperature}°C ... 🥵`);
@@ -61,7 +61,7 @@ board.on("ready", () => {
 
   // shutdown the leds on exit
   board.on("exit", () => {
-    midlLed.off();
+    mildLed.off();
     hotLed.off();
     coldLed.off();
   });
