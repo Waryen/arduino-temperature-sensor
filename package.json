@@ -1,20 +1,16 @@
 {
   "name": "arduino-temperature-sensor",
   "version": "1.0.0",
-  "description": "A JavaScript controller for a temperature sensor built with Arduino",
-  "main": "index.js",
+  "description": "A temperature controller built with Arduino and johnny-five",
   "scripts": {
-    "dev": "bun --watch ./src/index.ts",
-    "build": "bun build ./src/index.ts --outdir ./dist --minify --target bun --format esm --splitting",
-    "start": "bun run build && bun ./dist/index.js"
+    "start": "node ./src/main.js"
   },
   "keywords": [
     "arduino",
     "javascript",
-    "typescript",
     "temperature",
     "sensor",
-    "bun",
+    "node",
     "johnny",
     "five"
   ],
@@ -23,8 +19,7 @@
   "dependencies": {
     "johnny-five": "^2.1.0"
   },
-  "devDependencies": {
-    "@types/johnny-five": "^2.1.4",
-    "prettier": "^3.0.3"
+  "volta": {
+    "node": "18.17.1"
   }
 }
