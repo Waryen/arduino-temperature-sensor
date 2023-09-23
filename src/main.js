@@ -14,6 +14,8 @@ const temperatureBreakPoints = {
 };
 
 board.on("ready", () => {
+  console.log("Board ready");
+
   // initialize the leds and the thermometer sensor
   const hotLed = new Led(13);
   const coldLed = new Led(12);
