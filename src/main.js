@@ -1,15 +1,16 @@
+require("dotenv").config();
 const { Board, Thermometer, Led } = require("johnny-five");
 const { isBetween } = require("./utils");
 
 // initialize the arduino board
 const board = new Board();
 // constants
-const analogPin = "A0";
-const sensor = "TMP36";
-const temperatureRefreshRate = 1000; // in ms
+const analogPin = process.env.ANALOG_PIN;
+const sensor = process.env.SENSOR;
+const temperatureRefreshRate = parseInt(process.env.TEMPERATURE_REFRESH_RATE); // in ms
 const temperatureBreakPoints = {
-  cold: 18,
-  hot: 22,
+  cold: process.env.COLD_TEMPERATURE_BREAKPOINT,
+  hot: process.env.HOT_TEMPERATURE_BREAKPOINT,
 };
 
 board.on("ready", () => {
