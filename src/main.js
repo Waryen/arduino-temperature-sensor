@@ -53,13 +53,12 @@ board.on("ready", () => {
     }
 
     // if the temperature is above or equal to the hot breakpoint
-    if (currentTemperature)
-      if (currentTemperature >= temperatureBreakPoints.hot) {
-        mildLed.off();
-        coldLed.off();
-        hotLed.on();
-        console.log(`${currentTemperature}°C ... 🥵`);
-      }
+    if (currentTemperature >= temperatureBreakPoints.hot) {
+      mildLed.off();
+      coldLed.off();
+      hotLed.on();
+      console.log(`${currentTemperature}°C ... 🥵`);
+    }
   });
 
   // shutdown the leds on exit
