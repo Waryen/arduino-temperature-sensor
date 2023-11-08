@@ -30,15 +30,22 @@ board.on("ready", () => {
   thermometer.on("change", () => {
     const currentTemperature = thermometer.celsius;
 
-    // if the temperature is below or equal to the cold breakpoint
     if (currentTemperature <= temperatureBreakPoints.cold) {
       hotLed.off();
       mildLed.off();
       coldLed.on();
       console.log(`${currentTemperature}°C ... 🥶`);
+      return;
     }
 
-    // if the temperature is between the cold and hot breakpoints
+    if (currentTemperature >= temperatureBreakPoints.hot) {
+      mildLed.off();
+      coldLed.off();
+      hotLed.on();
+      console.log(`${currentTemperature}°C ... 🥵`);
+      return;
+    }
+
     if (
       isBetween(
         temperatureBreakPoints.cold,
@@ -50,19 +57,14 @@ board.on("ready", () => {
       coldLed.off();
       mildLed.on();
       console.log(`${currentTemperature}°C ... ✅`);
-    }
-
-    // if the temperature is above or equal to the hot breakpoint
-    if (currentTemperature >= temperatureBreakPoints.hot) {
-      mildLed.off();
-      coldLed.off();
-      hotLed.on();
-      console.log(`${currentTemperature}°C ... 🥵`);
+      return;
     }
   });
 
   // shutdown the leds on exit
   board.on("exit", () => {
+    console.log("Board exiting");
+    console.log("Shutting down the leds");
     mildLed.off();
     hotLed.off();
     coldLed.off();
