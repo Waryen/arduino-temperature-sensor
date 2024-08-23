@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A temperature controller built with Arduino and johnny-five",
   "scripts": {
-    "start": "node ./src/main.js"
+    "start": "tsx ./src/main.ts"
   },
   "keywords": [
     "arduino",
@@ -21,6 +21,16 @@
     "johnny-five": "^2.1.0"
   },
   "volta": {
-    "node": "18.17.1"
+    "node": "18.19.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.6",
+    "@types/johnny-five": "^2.1.9",
+    "@types/node": "^20.10.7",
+    "eslint": "^8.56.0",
+    "eslint-config-universe": "^12.0.0",
+    "prettier": "^3.1.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
   }
 }
